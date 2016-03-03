@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include "client.h"
 #include <geometry_msgs/TransformStamped.h>
+#include <dji_sdk/DJI_LIB_ROS_Adapter.h>
 
 #define DEBUG
 
@@ -49,11 +50,11 @@ void viconCallback5(const geometry_msgs::TransformStamped t)
 
 int main(int argc, char **argv)
 {
-	ros::init(argc,argv,"vicon_ros_bridge");
+    ros::init(argc,argv,"vicon_ros_bridge_1");
 
     ros::NodeHandle nh;
 	//init the SDK part
-    DJIDrone* drone = new DJIDrone(nh);
+    ROSAdapter* drone = new ROSAdapter();
 
 	
 	//init the Vicon part
